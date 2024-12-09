@@ -1,0 +1,8 @@
+#BSUB -n 32
+#BSUB -J "mpi_job"
+#BSUB -o "my_job.%J.out"
+#BSUB -e "my_job.%J.err"
+#BSUB -R "span[ptile=16]"
+OMP_NUM_THREADS=1
+
+mpiexec ./prog_mpi 256 0 0.00001 20 1
